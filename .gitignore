@@ -1,0 +1,6 @@
+venv
+.venv
+config
+data
+logs
+models
