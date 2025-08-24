@@ -21,10 +21,17 @@ https://github.com/CristianMachucaMendoza/Otus-Machuka-Projects/blob/main/infra/
 
 https://storage.yandexcloud.net/otus-machuca-bucket-b1gjlbg9jdvuumq3kui1/
 
+https://github.com/CristianMachucaMendoza/Otus-Machuka-Projects/blob/main/infra/scripts/user_data.sh
+
 3. Создать Spark-кластер в Yandex Data Processing с двумя подкластерами согласно характеристикам:
+
 https://github.com/CristianMachucaMendoza/Otus-Machuka-Projects/blob/main/infra/main.tf
 
 4. Подключиться по SSH к мастер-узлу и выполнить команду копирования содержимого хранилища в файловую систему HDFS с помощью `hadoop distcp`. 
 
+https://github.com/CristianMachucaMendoza/Otus-Machuka-Projects/blob/main/infra/scripts/upload_data_to_hdfs.sh
+
+![alt text](image-1.png)
+/mnt/d/OTUS/code/otus-machuka-projects/imgs/filesHdfs.png
 
 5. Оценить месячные затраты на поддержание кластера, используя тарифный калькулятор Yandex Cloud. Сравнить стоимость содержания HDFS vs объектного хранилища.
