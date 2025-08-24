@@ -16,3 +16,8 @@ infra/.terraform
 infra/.terraform.tfstate.lock.info
 infra/terraform.tfvars
 infra/terraform.tfstate
+*.tfstate
+*.tfstate.*
+.terraform/
+*.tfvars
+crash.log
