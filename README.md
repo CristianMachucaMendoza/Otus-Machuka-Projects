@@ -31,7 +31,7 @@ https://github.com/CristianMachucaMendoza/Otus-Machuka-Projects/blob/main/infra/
 
 https://github.com/CristianMachucaMendoza/Otus-Machuka-Projects/blob/main/infra/scripts/upload_data_to_hdfs.sh
 
-![alt text](image-1.png)
-/mnt/d/OTUS/code/otus-machuka-projects/imgs/filesHdfs.png
+![alt text](imgs/filesHdfs.png)
+
 
 5. Оценить месячные затраты на поддержание кластера, используя тарифный калькулятор Yandex Cloud. Сравнить стоимость содержания HDFS vs объектного хранилища.
