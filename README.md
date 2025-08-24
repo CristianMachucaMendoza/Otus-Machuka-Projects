@@ -9,10 +9,6 @@ Spark-кластер должен иметь следующие характер
 
 ## Задания
 
-Результат работы ожидается в виде репозитория или ветки на GitHub с Terraform-конфигурациями и необходимым кодом для запуска системы.
-
-### Обязательные задания
-
 1. Создать новый bucket в Yandex Cloud Object Storage с помощью Terraform-скрипта:
 
 https://github.com/CristianMachucaMendoza/Otus-Machuka-Projects/blob/main/infra/main.tf
