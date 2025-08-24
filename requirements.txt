@@ -16,3 +16,4 @@ matplotlib
 # test
 pytest
 pytest-cov
+boto3

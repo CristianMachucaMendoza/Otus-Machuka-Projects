@@ -4,3 +4,14 @@ config
 data
 logs
 models
+.env
+.pre-commit-config.yaml
+.python-version
+images.txt
+pyproject.toml
+terraform
+tests3.py
+uv.lock
+infra/.terraform
+infra/.terraform.tfstate.lock.info
+infra/terraform.tfvars
