@@ -110,19 +110,25 @@ resource "yandex_vpc_security_group" "security_group" {
     predefined_target = "self_security_group"
   }
 }
-
+#
 # Storage ресурсы
-resource "yandex_storage_bucket" "data_bucket" {
-  bucket        = "${var.yc_bucket_name}-${var.yc_folder_id}"
-  access_key    = yandex_iam_service_account_static_access_key.sa-static-key.access_key
-  secret_key    = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
-  force_destroy = false
-}
+#resource "yandex_storage_bucket" "data_bucket" {
+#  bucket        = "${var.yc_bucket_name}-${var.yc_folder_id}"
+#  access_key    = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+#  secret_key    = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+#  force_destroy = false
+#}
+
+#SInce i already have data there i do not nneed to create again
+#data "yandex_storage_bucket" "data_bucket" {
+#  bucket = "${var.yc_bucket_name}-${var.yc_folder_id}"
+#}
+
 
 # Dataproc ресурсы
 resource "yandex_dataproc_cluster" "dataproc_cluster" {
   depends_on  = [yandex_resourcemanager_folder_iam_member.sa_roles]
-  bucket      = yandex_storage_bucket.data_bucket.bucket
+  bucket      = var.yc_bucket_name
   description = "Dataproc Cluster created by Terraform for OTUS project"
   name        = var.yc_dataproc_cluster_name
   labels = {
@@ -166,7 +172,7 @@ resource "yandex_dataproc_cluster" "dataproc_cluster" {
         disk_size          = var.dataproc_data_resources.disk_size
       }
       subnet_id   = yandex_vpc_subnet.subnet.id
-      hosts_count = 1
+      hosts_count = 3
     }
 
     subcluster_spec {
@@ -178,7 +184,7 @@ resource "yandex_dataproc_cluster" "dataproc_cluster" {
         disk_size          = var.dataproc_compute_resources.disk_size
       }
       subnet_id   = yandex_vpc_subnet.subnet.id
-      hosts_count = 1
+      hosts_count = 3
     }
   }
 }
@@ -207,8 +213,9 @@ resource "yandex_compute_instance" "proxy" {
       private_key                 = file(var.private_key_path)
       access_key                  = yandex_iam_service_account_static_access_key.sa-static-key.access_key
       secret_key                  = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
-      s3_bucket                   = yandex_storage_bucket.data_bucket.bucket
+      s3_bucket                   = var.yc_bucket_name
       upload_data_to_hdfs_content = file("${path.root}/scripts/upload_data_to_hdfs.sh")
+      processing_content          = file("${path.root}/scripts/process_data.py")
     })
   }
 
@@ -217,7 +224,7 @@ resource "yandex_compute_instance" "proxy" {
   }
 
   resources {
-    cores  = 2
+    cores  = 4
     memory = 16
   }
 

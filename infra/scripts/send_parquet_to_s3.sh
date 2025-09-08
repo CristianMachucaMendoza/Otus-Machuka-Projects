@@ -1,0 +1,1 @@
+hadoop distcp /user/ubuntu/cleaned s3a://{{ s3_bucket }}/cleaned

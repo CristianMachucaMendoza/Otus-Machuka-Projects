@@ -4,5 +4,5 @@ output "proxy_public_ip" {
 }
 
 output "bucket_name" {
-  value = yandex_storage_bucket.data_bucket.bucket
+  value = var.yc_bucket_name
 }

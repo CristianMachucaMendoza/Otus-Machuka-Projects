@@ -112,11 +112,11 @@ TARGET_BUCKET=${s3_bucket}
 log "Copying file from source bucket to destination bucket"
 # List all files in the source bucket
 
-s3cmd cp \
-    --config=/home/ubuntu/.s3cfg \
-    --acl-public \
-    s3://otus-mlops-source-data/* \
-    s3://$TARGET_BUCKET/
+#s3cmd cp \
+#    --config=/home/ubuntu/.s3cfg \
+#    --acl-public \
+#    s3://otus-mlops-source-data/* \
+#    s3://$TARGET_BUCKET/
 
 FILE_NAME="2022-11-04.txt"
 # Проверяем успешность копирования
@@ -137,9 +137,14 @@ log "Copying upload_data_to_hdfs.sh script to proxy machine"
 echo '${upload_data_to_hdfs_content}' > /home/ubuntu/scripts/upload_data_to_hdfs.sh
 sed -i 's/{{ s3_bucket }}/'$TARGET_BUCKET'/g' /home/ubuntu/scripts/upload_data_to_hdfs.sh
 
+log "Copying processing.py script to proxy machine"
+echo '${processing_content}' > /home/ubuntu/scripts/process_data.py
+sed -i 's/{{ s3_bucket }}/'$TARGET_BUCKET'/g' /home/ubuntu/scripts/process_data.py
+
 # Устанавливаем правильные разрешения для скрипта на прокси-машине
 log "Setting permissions for upload_data_to_hdfs.sh on proxy machine"
 chmod +x /home/ubuntu/scripts/upload_data_to_hdfs.sh
+chmod +x /home/ubuntu/scripts/process.py
 
 # Проверяем подключение к мастер-ноде
 log "Checking connection to master node"
@@ -155,6 +160,8 @@ fi
 # Копируем скрипт upload_data_to_hdfs.sh с прокси-машины на мастер-ноду
 log "Copying upload_data_to_hdfs.sh script from proxy machine to master node"
 scp -i /home/ubuntu/.ssh/dataproc_key -o StrictHostKeyChecking=no /home/ubuntu/scripts/upload_data_to_hdfs.sh ubuntu@$DATAPROC_MASTER_FQDN:/home/ubuntu/
+log "Copying process_data.py script from proxy machine to master node"
+scp -i /home/ubuntu/.ssh/dataproc_key -o StrictHostKeyChecking=no /home/ubuntu/scripts/process_data.py ubuntu@$DATAPROC_MASTER_FQDN:/home/ubuntu/
 
 # Устанавливаем правильные разрешения для скрипта на мастер-ноде
 log "Setting permissions for upload_data_to_hdfs.sh on master node"

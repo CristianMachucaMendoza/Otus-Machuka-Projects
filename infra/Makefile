@@ -1,5 +1,5 @@
 init:
-	terraform init -upgrade
+	terraform init 
 
 plan:
 	terraform plan
