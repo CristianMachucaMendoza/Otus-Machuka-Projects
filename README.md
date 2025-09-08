@@ -11,7 +11,7 @@ Spark-кластер должен иметь следующие характер
 
 1. Создать сервисный аккаунт в Yandex Cloud для работы с кластером Yandex Data Processing и предоставить ему необходимые роли:
 
-https://github.com/CristianMachucaMendoza/Otus-Machuka-Projects/blob/main/infra/main.tf
+https://github.com/CristianMachucaMendoza/Otus-Machuka-Projects/blob/homework3/infra/main.tf
 
 2. Создать новый bucket в Yandex Cloud Object Storage и предоставить созданному выше системному аккаунту право на запись к нему. Для проверки преподавателем данный bucket необходимо сделать общедоступным на чтение, а точку доступа к нему привести в README-файле Вашего GitHub-репозитория.:
 
@@ -20,22 +20,22 @@ https://storage.yandexcloud.net/otus-machuca-bucket-b1gjlbg9jdvuumq3kui1/
 
 3. Создать Spark-кластер в Yandex Data Processing, указав в настройках созданный выше bucket, с двумя подкластерами согласно указанным характеристикам.:
 
-https://github.com/CristianMachucaMendoza/Otus-Machuka-Projects/blob/main/infra/main.tf
+https://github.com/CristianMachucaMendoza/Otus-Machuka-Projects/blob/homework3/infra/main.tf
 
 4. Проанализировать датасет мошеннических транзакций на наличие в нем ошибочных данных. Данное действие рекомендуется выполнять с помощью среды Jupyter Notebook, запущенной на мастер-узле кластера. Нужно оценить, какие из основных проблем с данными могут иметь место в рассматриваемом датасете, и постараться выявить факт их наличия, колонки, которые они затрагивают, объем некорректных данных и т.д.. 
 
-https://github.com/CristianMachucaMendoza/Otus-Machuka-Projects/blob/notebooks/Spark-data-analyisis.ipynb
+https://github.com/CristianMachucaMendoza/Otus-Machuka-Projects/blob/homework3/notebooks/Spark-data-analyisis.ipynb
 
 
 
 5. Создать скрипт очистки данных на основе проведенного анализа качества с использованием Apache Spark. Скрипт должен иметь возможность автоматического запуска внешней системой.
 
-https://github.com/CristianMachucaMendoza/Otus-Machuka-Projects/blob/main/infra/scripts/process_data_by_one.py
+https://github.com/CristianMachucaMendoza/Otus-Machuka-Projects/blob/homework3/infra/scripts/process_data_by_one.py
 
 
 5. Выполнить очистку датасета с использованием созданного скрипта и сохранить его в созданном выше bucket'е в формате parquet, подходящем для хранения большого объема структурированных данных.
 
-https://github.com/CristianMachucaMendoza/Otus-Machuka-Projects/blob/main/infra/scripts/send_parquet_to_s3.sh
+https://github.com/CristianMachucaMendoza/Otus-Machuka-Projects/blob/homework3/infra/scripts/send_parquet_to_s3.sh
 
 
 
