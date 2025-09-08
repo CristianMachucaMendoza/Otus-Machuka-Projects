@@ -34,7 +34,7 @@ https://github.com/CristianMachucaMendoza/Otus-Machuka-Projects/blob/homework3/n
 https://github.com/CristianMachucaMendoza/Otus-Machuka-Projects/blob/homework3/infra/scripts/process_data_by_one.py
 
 
-5. Выполнить очистку датасета с использованием созданного скрипта и сохранить его в созданном выше bucket'е в формате parquet, подходящем для хранения большого объема структурированных данных.
+6. Выполнить очистку датасета с использованием созданного скрипта и сохранить его в созданном выше bucket'е в формате parquet, подходящем для хранения большого объема структурированных данных.
 
 https://github.com/CristianMachucaMendoza/Otus-Machuka-Projects/blob/homework3/infra/scripts/send_parquet_to_s3.sh
 
