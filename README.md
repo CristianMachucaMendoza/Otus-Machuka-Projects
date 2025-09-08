@@ -17,7 +17,7 @@ https://github.com/CristianMachucaMendoza/Otus-Machuka-Projects/blob/homework3/i
 
 https://storage.yandexcloud.net/otus-machuca-bucket-b1gjlbg9jdvuumq3kui1/
 
-![alt text](imgs/Parquet_file.PNG)
+![alt text](imgs/Parquet_files.PNG)
 
 3. Создать Spark-кластер в Yandex Data Processing, указав в настройках созданный выше bucket, с двумя подкластерами согласно указанным характеристикам.:
 
